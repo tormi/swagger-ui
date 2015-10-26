@@ -321,6 +321,19 @@
                     }
                 }
             }
+            .propDesc.markdown {
+                > p:first-child,
+                > p:last-child {
+                    display: inline;
+                }
+                > p:not(:first-child):before {
+                    display: block;
+                    content: '';
+                }
+            }
+            span:last-of-type.propDesc.markdown > p:only-child {
+                margin-right: -3px; // otherwise there is a gap before the comma
+            }
         }
         .propName {
             font-weight: bold;
@@ -730,6 +743,9 @@
                                     input[type='text'].error {
                                         outline: 2px solid black;
                                         outline-color: #cc0000;
+                                    }
+                                    select[name='parameterContentType'] {
+                                        max-width:300px;
                                     }
                                 }
                                 div.response {
